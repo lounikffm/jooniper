@@ -1,5 +1,5 @@
 {
-  "name": "juniper",
+  "name": "jooniper",
   "version": "1.0.0",
   "description": "a visual regression testing utility with backstopjs",
   "main": "src/index.js",
