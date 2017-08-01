@@ -3,33 +3,32 @@
 const backstop = require('backstopjs');
 const glob = require("glob")
 const renameExtension = require('rename-extension')
-/*
-	Set up some variables
-*/
+
 
 const generateConfig = function(pattern, url, cwd){
 
-	var scenarios = []; // The array that'll have the pages to test
-	var defaultPath = cwd
-	var localhost = url
-	var paths = glob(pattern);
+	/*
+		Set up some variables
+	*/
 
-	for (var k = 0; k < paths.lenght; k++) {
-		renameExtension(paths[k], '.html')
-	}
+	var paths = glob.sync(pattern, {cwd} );
 
-	for (var k = 0; k < paths.length; k++) {
-		scenarios.push({
-			"label": paths[k],
-			"url": localhost + paths[k],
+	const scenarios = paths.map((filePath) => {
+
+		const newPath = renameExtension(filePath, '.html')
+
+		return {
+			"label": filePath,
+			"url": url + newPath,
 			"hideSelectors": [],
 			"removeSelectors": [],
 			"selectors": ['document'],
 			"readyEvent": null,
 			"delay": 1000,
 			"misMatchThreshold" : 0.1
-		});
-	}
+		}
+
+	})
 
 	var config = {
 		"id": "prod_test",
