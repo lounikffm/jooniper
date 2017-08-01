@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "a visual regression testing utility with backstopjs",
   "main": "src/index.js",
-  "scripts": {
-    "reference": "reference",
-    "test": "test"
-  },
+  "scripts": {},
   "author": "",
   "license": "MIT",
   "repository": {
