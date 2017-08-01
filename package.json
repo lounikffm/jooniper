@@ -4,8 +4,8 @@
   "description": "a visual regression testing utility with backstopjs",
   "main": "src/index.js",
   "scripts": {
-    "reference" : "reference",
-    "test" : "test"
+    "reference": "reference",
+    "test": "test"
   },
   "author": "",
   "license": "MIT",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "backstopjs": "^3.0.6",
-    "walk-sync": "^0.3.2"
+    "glob": "^7.1.2",
+    "rename-extension": "^2.0.2"
   }
 }

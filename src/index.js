@@ -1,18 +1,22 @@
 'use strict'
 
 const backstop = require('backstopjs');
-const walkSync = require('walk-sync');
-
+const glob = require("glob")
+const renameExtension = require('rename-extension')
 /*
 	Set up some variables
 */
 
-var scenarios = []; // The array that'll have the pages to test
-var defaultPath = 'dist/components/'
-var localhost = "http://localhost:3000/components/"
-var paths = walkSync(defaultPath, { globs: ['**/[^_]*.html'] });
+const generateConfig = function(pattern, url, cwd){
 
-const generateConfig = function(){
+	var scenarios = []; // The array that'll have the pages to test
+	var defaultPath = cwd
+	var localhost = url
+	var paths = glob(pattern);
+
+	for (var k = 0; k < paths.lenght; k++) {
+		renameExtension(paths[k], '.html')
+	}
 
 	for (var k = 0; k < paths.length; k++) {
 		scenarios.push({
@@ -64,6 +68,6 @@ const generateConfig = function(){
 };
 
 module.exports = {
-		reference : () => backstop('reference', { config: generateConfig() }),
-		test   : () => backstop('test', { config: generateConfig() })
+		reference : (pattern, url, cwd) => backstop('reference', { config: generateConfig(pattern, url, cwd) }),
+		test   : (pattern, url, cwd) => backstop('test', { config: generateConfig(pattern, url, cwd) })
 }
