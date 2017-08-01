@@ -1,6 +1,6 @@
 {
   "name": "jooniper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a visual regression testing utility with backstopjs",
   "main": "src/index.js",
   "scripts": {},
