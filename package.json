@@ -1,0 +1,11 @@
+{
+  "name": "juniper",
+  "version": "1.0.0",
+  "description": "a visual regression testing utility with backstopjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
