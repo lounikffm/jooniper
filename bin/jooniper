@@ -4,7 +4,7 @@
 
 const mri    = require('mri')
 
-const Jooniper  = require('./../src/index')
+const jooniper  = require('./../src/index')
 
 const reference = function(pattern, url, cwd){
 	jooniper.reference(pattern, url, cwd)
