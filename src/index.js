@@ -12,51 +12,58 @@ var defaultPath = 'dist/components/'
 var localhost = "http://localhost:3000/components/"
 var paths = walkSync(defaultPath, { globs: ['**/[^_]*.html'] });
 
-for (var k = 0; k < paths.length; k++) {
-	scenarios.push({
-		"label": paths[k],
-		"url": localhost + paths[k],
-		"hideSelectors": [],
-		"removeSelectors": [],
-		"selectors": ['document'],
-		"readyEvent": null,
-		"delay": 1000,
-		"misMatchThreshold" : 0.1
-	});
-}
+const generateConfig = function(){
 
-const config = {
+	for (var k = 0; k < paths.length; k++) {
+		scenarios.push({
+			"label": paths[k],
+			"url": localhost + paths[k],
+			"hideSelectors": [],
+			"removeSelectors": [],
+			"selectors": ['document'],
+			"readyEvent": null,
+			"delay": 1000,
+			"misMatchThreshold" : 0.1
+		});
+	}
 
-	"id": "prod_test",
-	"asyncCompareLimit": 5000,
-	"asyncCaptureLimit": 10,
-	"viewports": [
-		{
-			"name": "large",
-			"width": 1920,
-			"height": 1080
+	var config = {
+		"id": "prod_test",
+		"asyncCompareLimit": 5000,
+		"asyncCaptureLimit": 10,
+		"viewports": [
+			{
+				"name": "large",
+				"width": 1920,
+				"height": 1080
+			},
+			{
+				"name": "large",
+				"width": 375,
+				"height": 667
+			}
+		],
+		"scenarios":
+		scenarios
+		,
+		"paths": {
+			"bitmaps_reference": "backstop_data/bitmaps_reference",
+			"bitmaps_test":      "backstop_data/bitmaps_test",
+			"casper_scripts":    "backstop_data/engine_scripts",
+			"html_report":       "backstop_data/html_report",
+			"ci_report":         "backstop_data/ci_report"
 		},
-		{
-			"name": "large",
-			"width": 375,
-			"height": 667
-		}
-	],
-	"scenarios":
-	scenarios
-	,
-	"paths": {
-		"bitmaps_reference": "backstop_data/bitmaps_reference",
-		"bitmaps_test":      "backstop_data/bitmaps_test",
-		"casper_scripts":    "backstop_data/engine_scripts",
-		"html_report":       "backstop_data/html_report",
-		"ci_report":         "backstop_data/ci_report"
-	},
-	"casperFlags": [],
-	"engine": "chrome",
-	"report": ["browser"],
-	"debug": false
+		"casperFlags": [],
+		"engine": "chrome",
+		"report": ["browser"],
+		"debug": false
+	}
+
+	return config;
 
 };
 
-backstop('test', { config });
+module.exports = {
+		reference : () => backstop('reference', { config: generateConfig() }),
+		test   : () => backstop('test', { config: generateConfig() })
+}

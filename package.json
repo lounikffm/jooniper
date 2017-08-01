@@ -4,7 +4,8 @@
   "description": "a visual regression testing utility with backstopjs",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "reference" : "reference",
+    "test" : "test"
   },
   "author": "",
   "license": "MIT",
