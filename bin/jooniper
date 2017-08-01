@@ -2,6 +2,8 @@
 
 'use strict'
 
+const mri    = require('mri')
+
 const Jooniper  = require('./../src/index')
 
 const reference = function(pattern, url, cwd){
@@ -11,3 +13,15 @@ const reference = function(pattern, url, cwd){
 const test = function(pattern, url, cwd){
 	jooniper.test(pattern, url, cwd)
 }
+
+const parse = function(argv) {
+
+	// Serve current or specified folder
+	if (argv._[0]==='reference') return reference(argv._[1], argv._[2], argv._[3] )
+
+	// Compile current or specified folder to static files
+	if (argv._[0]==='test') return test(argv._[1], argv._[2], argv._[3] )
+
+}
+
+parse(mri(process.argv.slice(2)))
