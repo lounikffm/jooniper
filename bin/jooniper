@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+'use strict'
+
+const Jooniper  = require('./../src/index')
+
+const reference = function(pattern, url, cwd){
+	jooniper.reference(pattern, url, cwd)
+}
+
+const test = function(pattern, url, cwd){
+	jooniper.test(pattern, url, cwd)
+}
