@@ -4,7 +4,6 @@ const backstop = require('backstopjs');
 const glob = require("glob")
 const renameExtension = require('rename-extension')
 
-
 const generateConfig = function(pattern, url, cwd){
 
 	/*
@@ -68,5 +67,5 @@ const generateConfig = function(pattern, url, cwd){
 
 module.exports = {
 		reference : (pattern, url, cwd) => backstop('reference', { config: generateConfig(pattern, url, cwd) }),
-		test   : (pattern, url, cwd) => backstop('test', { config: generateConfig(pattern, url, cwd) })
+		test   : (pattern, url, cwd) => backstop('test', { config: generateConfig(pattern, url, cwd) }),
 }
