@@ -16,7 +16,7 @@
     "url": "https://github.com/lounikffm/juniper.git"
   },
   "dependencies": {
-    "backstopjs": "^3.0.6",
+    "backstopjs": "3.0.6",
     "glob": "^7.1.2",
     "mri": "^1.1.0",
     "rename-extension": "^2.0.2"
