@@ -6,25 +6,25 @@ const mri    = require('mri')
 
 const jooniper  = require('./../src/index')
 
-const reference = function(pattern, url, cwd){
-	jooniper.reference(pattern, url, cwd)
+const reference = function(pattern, url, cwd, delay){
+	jooniper.reference(pattern, url, cwd, delay)
 }
 
-const test = function(pattern, url, cwd){
-	jooniper.test(pattern, url, cwd)
+const test = function(pattern, url, cwd, delay){
+	jooniper.test(pattern, url, cwd, delay)
 }
 
-const approve = function(pattern, url, cwd){
-	jooniper.approve(pattern, url, cwd)
+const approve = function(pattern, url, cwd, delay){
+	jooniper.approve(pattern, url, cwd, delay)
 }
 
 const parse = function(argv) {
 
 	// Serve current or specified folder
-	if (argv._[0]==='reference') return reference(argv._[1], argv._[2], argv._[3] )
+	if (argv._[0]==='reference') return reference(argv._[1], argv._[2], argv._[3], argv._[4] )
 
 	// Compile current or specified folder to static files
-	if (argv._[0]==='test') return test(argv._[1], argv._[2], argv._[3] )
+	if (argv._[0]==='test') return test(argv._[1], argv._[2], argv._[3], argv._[4] )
 
 }
 

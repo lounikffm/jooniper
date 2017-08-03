@@ -4,7 +4,7 @@ const backstop = require('backstopjs');
 const glob = require("glob")
 const renameExtension = require('rename-extension')
 
-const generateConfig = function(pattern, url, cwd){
+const generateConfig = function(pattern, url, cwd, delay){
 
 	/*
 		Set up some variables
@@ -23,7 +23,7 @@ const generateConfig = function(pattern, url, cwd){
 			"removeSelectors": [],
 			"selectors": ['document'],
 			"readyEvent": null,
-			"delay": 1000,
+			"delay": delay,
 			"misMatchThreshold" : 0.1
 		}
 

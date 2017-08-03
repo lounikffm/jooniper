@@ -11,9 +11,11 @@ npm install jooniper
 ## Usage
 
 ```js
-jooniper.reference(pattern, url, cwd)
-jooniper.test(pattern, url, cwd)
+jooniper.reference(pattern, url, cwd, delay)
+jooniper.test(pattern, url, cwd, delay)
 ```
+NEW: you have to specify the delay after which backstop takes the screenshot. ex.: 2000 -> 2 Seconds
+
 
 ### Parameters
 
