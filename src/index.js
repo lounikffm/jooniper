@@ -68,4 +68,5 @@ const generateConfig = function(pattern, url, cwd){
 module.exports = {
 		reference : (pattern, url, cwd) => backstop('reference', { config: generateConfig(pattern, url, cwd) }),
 		test   : (pattern, url, cwd) => backstop('test', { config: generateConfig(pattern, url, cwd) }),
+		approve   : (pattern, url, cwd) => backstop('approve', { config: generateConfig(pattern, url, cwd) }),
 }

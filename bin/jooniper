@@ -14,6 +14,10 @@ const test = function(pattern, url, cwd){
 	jooniper.test(pattern, url, cwd)
 }
 
+const approve = function(pattern, url, cwd){
+	jooniper.approve(pattern, url, cwd)
+}
+
 const parse = function(argv) {
 
 	// Serve current or specified folder
