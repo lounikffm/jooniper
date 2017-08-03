@@ -23,7 +23,7 @@ const generateConfig = function(pattern, url, cwd){
 			"removeSelectors": [],
 			"selectors": ['document'],
 			"readyEvent": "ready4capture",
-			"delay": 3000,
+			"delay": null,
 			"misMatchThreshold" : 0.1
 		}
 
