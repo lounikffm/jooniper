@@ -4,7 +4,7 @@ const backstop = require('backstopjs');
 const glob = require("glob")
 const renameExtension = require('rename-extension')
 
-const generateConfig = function(pattern, url, cwd, delay){
+const generateConfig = function(pattern, url, cwd){
 
 	/*
 		Set up some variables
@@ -23,7 +23,7 @@ const generateConfig = function(pattern, url, cwd, delay){
 			"removeSelectors": [],
 			"selectors": ['document'],
 			"readyEvent": null,
-			"delay": delay,
+			"delay": 3000,
 			"misMatchThreshold" : 0.1
 		}
 
@@ -66,7 +66,7 @@ const generateConfig = function(pattern, url, cwd, delay){
 };
 
 module.exports = {
-		reference : (pattern, url, cwd, delay) => backstop('reference', { config: generateConfig(pattern, url, cwd, delay) }),
-		test   : (pattern, url, cwd, delay) => backstop('test', { config: generateConfig(pattern, url, cwd, delay) }),
-		approve   : (pattern, url, cwd, delay) => backstop('approve', { config: generateConfig(pattern, url, cwd, delay) }),
+		reference : (pattern, url, cwd) => backstop('reference', { config: generateConfig(pattern, url, cwd) }),
+		test   : (pattern, url, cwd) => backstop('test', { config: generateConfig(pattern, url, cwd) }),
+		approve   : (pattern, url, cwd) => backstop('approve', { config: generateConfig(pattern, url, cwd) }),
 }
