@@ -26,6 +26,9 @@ const parse = function(argv) {
 	// Compile current or specified folder to static files
 	if (argv._[0]==='test') return test(argv._[1], argv._[2], argv._[3] )
 
+	// Compile current or specified folder to static files
+	if (argv._[0]==='approve') return approve(argv._[1], argv._[2], argv._[3] )
+
 }
 
 parse(mri(process.argv.slice(2)))
